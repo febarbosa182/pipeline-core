@@ -30,11 +30,11 @@ spec:
         node(POD_LABEL) {        
             stage('Assembler'){
                 container("jnlp"){
-                    assembler.compose(this, jobParams)
+                    assembler.compose(this)
                 }
             }
 
-            assembler.runSteps(this, jobParams)
+            assembler.runSteps(this)
         }
     }
 }
