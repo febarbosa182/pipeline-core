@@ -251,6 +251,7 @@ controller:
                       env.KUBE_NAMESPACE = "default"
                       env.HELM_RELEASE_NAME = "pipeline-simple-app"
                       env.DOCKER_IMAGE = "pipeline-simple-app"
+                      env.CI_IMAGE = "node:12.20.0"
                       
                       coreLibrary{
                           repoBranch = "${this.REPO_BRANCH}";
