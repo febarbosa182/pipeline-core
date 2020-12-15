@@ -247,10 +247,9 @@ controller:
 
                       env.REPO_URL = "https://github.com/febarbosa182/pipeline-simple-app.git"
                       env.TECH_TYPE= "angular"
-                      env.DOCKER_REGISTRY = "febarbosa182"
                       env.KUBE_NAMESPACE = "default"
                       env.HELM_RELEASE_NAME = "pipeline-simple-app"
-                      env.DOCKER_IMAGE = "pipeline-simple-app"
+                      env.DOCKER_IMAGE = "febarbosa182/pipeline-simple-app"
                       env.CI_IMAGE = "node:12.20.0"
                       
                       coreLibrary{
