@@ -39,4 +39,4 @@ Pass: admin
 
 A job with a simple app and libraries call is set in home page but before execute is you <b>MUST<b>: Go in "Manage Jenkins">"In-process Script Approval" and Approve the pipeline script, or access through url http://localhost:8080/scriptApproval/ and Approve the pipeline script.
 
-All set up, now just run the job and enjoy 🤩
+All set up, now just run the "Simple App" job and enjoy 🤩

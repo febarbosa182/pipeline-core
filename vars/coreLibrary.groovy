@@ -4,6 +4,8 @@ def call(body){
 
     Assembler assembler = new Assembler()
 
+    def jobRunId = UUID.randomUUID().toString()
+
     podTemplate(
         yaml: """
 apiVersion: v1
