@@ -240,7 +240,7 @@ controller:
                       @Library (['core','assembler']) _
                       properties([
                           parameters(
-                              [ string(name: 'REPO_BRANCH', defaultValue: 'master', description: 'git repository branch') ]
+                              [ string(name: 'REPO_BRANCH', defaultValue: 'main', description: 'git repository branch') ]
                           )
                       ])
                       params.each { k, v -> env[k] = v }
