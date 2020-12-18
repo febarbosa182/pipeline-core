@@ -240,7 +240,7 @@ controller:
                       @Library (['core','assembler']) _
                       properties([
                           parameters(
-                              [ string(name: 'REPO_BRANCH', defaultValue: 'master', description: 'git repository branch') ]
+                              [ string(name: 'REPO_BRANCH', defaultValue: 'main', description: 'git repository branch') ]
                           )
                       ])
                       params.each { k, v -> env[k] = v }
@@ -249,6 +249,7 @@ controller:
                       env.TECH_TYPE= "angular"
                       env.KUBE_NAMESPACE = "default"
                       env.HELM_RELEASE_NAME = "pipeline-simple-app"
+                      env.HELM_CHART_NAME = "pipeline-simple-app"
                       env.DOCKER_IMAGE = "febarbosa182/pipeline-simple-app"
                       env.CI_IMAGE = "node:12.20.0"
                       
@@ -261,14 +262,14 @@ controller:
           globalLibraries:
             libraries:
               - name: "assembler"
-                defaultVersion: "1.0.0"
+                defaultVersion: "v1.0.0"
                 retriever:
                   modernSCM:
                     scm:
                       git:
                         remote: "https://github.com/febarbosa182/pipeline-assembler.git"
               - name: "core"
-                defaultVersion: "1.0.0"
+                defaultVersion: "v1.0.0"
                 retriever:
                   modernSCM:
                     scm:
