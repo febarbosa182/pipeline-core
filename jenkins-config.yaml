@@ -229,7 +229,7 @@ controller:
     configScripts: 
       welcome-message: |
         jenkins:
-          systemMessage: Welcome to our Easynvest CI\CD server. This Jenkins is configured and managed by SRE/DEVOPS team.
+          systemMessage: Welcome my dynamic pipeline demo.
       configuration: |
         jobs:
           - script: >
@@ -249,6 +249,7 @@ controller:
                       env.TECH_TYPE= "angular"
                       env.KUBE_NAMESPACE = "default"
                       env.HELM_RELEASE_NAME = "pipeline-simple-app"
+                      env.HELM_CHART_NAME = "pipeline-simple-app"
                       env.DOCKER_IMAGE = "febarbosa182/pipeline-simple-app"
                       env.CI_IMAGE = "node:12.20.0"
                       
@@ -261,14 +262,14 @@ controller:
           globalLibraries:
             libraries:
               - name: "assembler"
-                defaultVersion: "1.0.0"
+                defaultVersion: "v1.0.0"
                 retriever:
                   modernSCM:
                     scm:
                       git:
                         remote: "https://github.com/febarbosa182/pipeline-assembler.git"
               - name: "core"
-                defaultVersion: "1.0.0"
+                defaultVersion: "v1.0.0"
                 retriever:
                   modernSCM:
                     scm:
