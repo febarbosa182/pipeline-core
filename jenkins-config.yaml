@@ -229,7 +229,7 @@ controller:
     configScripts: 
       welcome-message: |
         jenkins:
-          systemMessage: Welcome to our Easynvest CI\CD server. This Jenkins is configured and managed by SRE/DEVOPS team.
+          systemMessage: Welcome my dynamic pipeline demo.
       configuration: |
         jobs:
           - script: >

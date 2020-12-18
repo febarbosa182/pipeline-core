@@ -1,4 +1,4 @@
-import br.com.easynvest.assembler.Assembler
+import br.com.dynamic.assembler.Assembler
 
 def call(body){
 
