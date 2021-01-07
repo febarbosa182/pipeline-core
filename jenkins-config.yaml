@@ -189,6 +189,7 @@ controller:
     - configuration-as-code:1.46
     - command-launcher:1.5
     - pipeline-utility-steps:2.6.1
+    - blueocean:1.24.3
 
 
   # List of plugins to install in addition to those listed in controller.installPlugins
