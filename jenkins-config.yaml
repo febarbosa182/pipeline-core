@@ -234,7 +234,7 @@ controller:
       configuration: |
         jobs:
           - script: >
-              pipelineJob('Simple App') {
+              pipelineJob('Simple-App') {
                 definition {
                   cps {
                     script("""\
