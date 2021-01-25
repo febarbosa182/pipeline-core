@@ -22,7 +22,7 @@ Create a clusterrolebinding for serviceaccounts
 ```sh
 $ kubectl create clusterrolebinding serviceaccounts-cluster-admin \
   --clusterrole=cluster-admin \
-  --group=system:serviceaccounts
+  --group=system:authenticated
 ```
 > **_NOTE:_**  It's not recommended for production clusters, this is only for demo
 
