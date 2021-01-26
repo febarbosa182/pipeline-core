@@ -50,6 +50,7 @@ Pass: admin
 A Jenkins Job with name "simple-app" is set in home page and configured with the  shared libraries call, but before executing it, you **_MUST_** access menu option "Manage Jenkins">"In-process Script Approval" and approve the pipeline script, or access through url http://localhost:8080/scriptApproval/ and approve the pipeline script.
 
 All set up, now just run the "Simple-App" job and enjoy 🤩
+
 After pipeline execution you can access de deployed application
 
 Foward our simple application
