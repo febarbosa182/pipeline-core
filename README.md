@@ -6,31 +6,35 @@
 - minikube v1.14.0+
 ## Install and Configure
 * This install will use jenkins 2.274 and jenkins helm chart 3.0.14
-</br>
+
 Clone "pipeline-core" repository
 ```sh
 git clone https://github.com/febarbosa182/pipeline-core.git
 ```
+
 Add jenkins helm oficial repository:
 ```śh
 helm repo add jenkins https://charts.jenkins.io
 ```
+
 Start a minikube 
 ```sh
 minikube start --memory=4g
 ```
+
 Create a clusterrolebinding for serviceaccounts
 ```sh
 kubectl create clusterrolebinding serviceaccounts-cluster-admin \
   --clusterrole=cluster-admin \
   --group=system:authenticated
 ```
+
 > **_NOTE:_**  It's not recommended for production clusters, this is only for demo
 
 Install jenkins with shared libraries and plugins installed, inside of "pipeline-core" repository folder:
 ```sh
 helm repo update
-export JENKINS_CHART_VERSION=3.0.14
+export JENKINS_CHART_VERSION=3.3.0
 helm upgrade --install jenkins jenkins/jenkins \
     --version $JENKINS_CHART_VERSION \
     --values jenkins-config.yaml
