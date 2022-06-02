@@ -23,7 +23,7 @@ class Node extends Common implements TechnologiesInterface, Serializable{
     // CD STEPS FOR BRANCH RELEASE
     final StepModel[] cdRelease = []
 
-    // CD STEPS FOR BRANCH MASTER
+    // CD STEPS FOR BRANCH MAIN
     final StepModel[] cdMain = []
 
     def fillSteps (jenkins) {
@@ -37,7 +37,7 @@ class Node extends Common implements TechnologiesInterface, Serializable{
             case ~/^release/:
                 currentPipe = ciSteps.plus(cdRelease)
                 break
-            case ~/^master/:
+            case ~/^main/:
                 currentPipe = ciSteps.plus(cdMain)
                 break
             default:

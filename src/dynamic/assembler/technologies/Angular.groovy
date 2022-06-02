@@ -44,7 +44,7 @@ class Angular extends Common implements TechnologiesInterface, Serializable{
     // CD STEPS FOR BRANCH RELEASE
     final StepModel[] cdRelease = []
 
-    // CD STEPS FOR BRANCH MASTER/MAIN
+    // CD STEPS FOR BRANCH MAIN
     final StepModel[] cdMain = [
         [
             identifier: 'deploy',
