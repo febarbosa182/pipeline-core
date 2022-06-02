@@ -1,0 +1,84 @@
+controller:
+  componentName: "jenkins-controller"
+  image: "jenkins/jenkins"
+  tag: "2.332.3-jdk11"
+  imagePullPolicy: "Always"
+  adminUser: "admin"
+  adminPassword: "admin"
+
+  # List of plugins to be install during Jenkins controller start
+  installPlugins:
+    - kubernetes:1.31.3
+    - kubernetes-cli:1.10.3
+    - workflow-job:2.40
+    - workflow-aggregator:2.6
+    - docker-workflow:1.26
+    - job-dsl:1.77
+    - git:4.10.2
+    - configuration-as-code:1429.v09b_044a_c93de
+    - command-launcher:1.5
+    - pipeline-utility-steps:2.7.0
+    - blueocean:1.25.5
+
+  JCasC:
+    defaultConfig: true
+    configScripts: 
+      welcome-message: |
+        jenkins:
+          systemMessage: Welcome my dynamic pipeline demo.
+      configuration: |
+        jobs:
+          - script: >
+              pipelineJob('Simple-App') {
+                definition {
+                  cps {
+                    script("""\
+                      @Library (['core','assembler']) _
+                      properties([
+                          parameters(
+                              [ string(name: 'REPO_BRANCH', defaultValue: 'main', description: 'git repository branch') ]
+                          )
+                      ])
+                      params.each { k, v -> env[k] = v }
+
+                      env.REPO_URL = "https://github.com/febarbosa182/pipeline-simple-app.git"
+                      env.TECH_TYPE= "angular"
+                      env.KUBE_NAMESPACE = "default"
+                      env.HELM_RELEASE_NAME = "pipeline-simple-app"
+                      env.HELM_CHART_NAME = "pipeline-simple-app"
+                      env.DOCKER_IMAGE = "febarbosa182/pipeline-simple-app"
+                      env.CI_IMAGE = "node:12.20.0"
+                      
+                      coreLibrary{}
+                    """.stripIndent())
+                  }
+                }
+              }
+        unclassified:
+          globalLibraries:
+            libraries:
+              - name: "core"
+                defaultVersion: "v1.0.0"
+                retriever:
+                  modernSCM:
+                    scm:
+                      git:
+                        remote: "https://github.com/febarbosa182/pipeline-core.git"
+    
+    securityRealm: |-
+      local:
+        allowsSignup: false
+        enableCaptcha: false
+        users:
+        - id: "${chart-admin-username}"
+          name: "Jenkins Admin"
+          password: "${chart-admin-password}"
+    # Ignored if authorizationStrategy is defined in controller.JCasC.configScripts
+    authorizationStrategy: |-
+      loggedInUsersCanDoAnything:
+        allowAnonymousRead: false
+ 
+agent:
+  enabled: true
+  image: "jenkins/inbound-agent"
+  tag: "4.11.2-4-jdk11"
