@@ -1,7 +1,7 @@
-package br.com.dynamic.assembler.technologies
+package dynamic.assembler.technologies
 
-import br.com.dynamic.assembler.Step
-import br.com.dynamic.assembler.StepModel
+import dynamic.assembler.Step
+import dynamic.assembler.StepModel
 import java.util.regex.Matcher
 
 class Node extends Common implements TechnologiesInterface, Serializable{
@@ -13,7 +13,7 @@ class Node extends Common implements TechnologiesInterface, Serializable{
             stepName: 'Checkout',
             urlRepo: 'https://github.com/febarbosa182/pipestep-checkout.git',
             branch: 'main',
-            instanceClass: 'br.com.dynamic.checkout.Checkout'
+            instanceClass: 'dynamic.checkout.Checkout'
         ]
     ]
 

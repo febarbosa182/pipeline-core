@@ -1,6 +1,6 @@
-package br.com.dynamic.assembler.technologies
+package dynamic.assembler.technologies
 
-import br.com.dynamic.assembler.Step
+import dynamic.assembler.Step
 
 class Common {
   def loadLibrary(context, String identifier, String urlRepo, String branch){

@@ -1,4 +1,4 @@
-package br.com.dynamic.assembler.technologies
+package dynamic.assembler.technologies
 
 interface TechnologiesInterface{
     def stepList
