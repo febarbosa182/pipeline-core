@@ -12,7 +12,7 @@ class Node extends Common implements TechnologiesInterface, Serializable{
             identifier: 'checkout',
             stepName: 'Checkout',
             urlRepo: 'https://github.com/febarbosa182/pipestep-checkout.git',
-            branch: 'main',
+            branch: 'v1.1.0',
             instanceClass: 'dynamic.checkout.Checkout'
         ]
     ]

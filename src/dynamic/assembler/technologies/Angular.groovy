@@ -12,7 +12,7 @@ class Angular extends Common implements TechnologiesInterface, Serializable{
             identifier: 'checkout',
             stepName: 'Checkout',
             urlRepo: 'https://github.com/febarbosa182/pipestep-checkout.git',
-            branch: 'v1.0.0',
+            branch: 'v1.1.0',
             instanceClass: 'dynamic.checkout.Checkout'
         ],
         [
