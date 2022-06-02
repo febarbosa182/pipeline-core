@@ -19,21 +19,21 @@ class Angular extends Common implements TechnologiesInterface, Serializable{
             identifier: 'dependencies',
             stepName: 'Dependencies',
             urlRepo: 'https://github.com/febarbosa182/pipestep-dependencies-angular.git',
-            branch: 'v1.0.0',
+            branch: 'v1.1.0',
             instanceClass: 'dynamic.dependencies.Dependencies'
         ],
         [
             identifier: 'build',
             stepName: 'Build',
             urlRepo: 'https://github.com/febarbosa182/pipestep-build-angular.git',
-            branch: 'v1.0.0',
+            branch: 'v1.1.0',
             instanceClass: 'dynamic.build.Build'
         ],
         [
             identifier: 'buildpublish',
             stepName: 'Docker Build and Publish',
             urlRepo: 'https://github.com/febarbosa182/pipestep-docker-build-and-publish.git',
-            branch: 'v1.0.0',
+            branch: 'v1.1.0',
             instanceClass: 'dynamic.docker.BuildAndPublish'
         ]
     ]
