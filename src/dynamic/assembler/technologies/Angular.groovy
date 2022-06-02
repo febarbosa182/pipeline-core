@@ -44,19 +44,13 @@ class Angular extends Common implements TechnologiesInterface, Serializable{
     // CD STEPS FOR BRANCH RELEASE
     final StepModel[] cdRelease = []
 
-    // CD STEPS FOR BRANCH STAGING
-    final StepModel[] cdStaging = []
-
-    // CD STEPS FOR BRANCH QA
-    final StepModel[] cdQa = []
-
     // CD STEPS FOR BRANCH MASTER/MAIN
-    final StepModel[] cdMaster = [
+    final StepModel[] cdMain = [
         [
             identifier: 'deploy',
             stepName: 'Deploy Helm Chart',
             urlRepo: 'https://github.com/febarbosa182/pipestep-helm-deploy.git',
-            branch: 'v1.0.0',
+            branch: 'v1.1.0',
             instanceClass: 'dynamic.deploy.Deploy'
         ]
     ]
@@ -69,17 +63,11 @@ class Angular extends Common implements TechnologiesInterface, Serializable{
             case ~/^develop/:
                 currentPipe = ciSteps.plus(cdDevelop)
                 break
-            case ~/^staging/:
-                currentPipe = ciSteps.plus(cdStaging)
-                break
             case ~/^release/:
                 currentPipe = ciSteps.plus(cdRelease)
                 break
-            case ~/^master/:
-                currentPipe = ciSteps.plus(cdMaster)
-                break
             case ~/^main/:
-                currentPipe = ciSteps.plus(cdMaster)
+                currentPipe = ciSteps.plus(cdMain)
                 break
             default:
                 currentPipe = ciSteps
