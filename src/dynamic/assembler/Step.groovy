@@ -1,4 +1,4 @@
-package br.com.dynamic.assembler
+package dynamic.assembler
 
 class Step{
     def stepObject;

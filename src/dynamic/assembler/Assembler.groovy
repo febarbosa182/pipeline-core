@@ -1,8 +1,8 @@
-package br.com.dynamic.assembler
+package dynamic.assembler
 
-import br.com.dynamic.assembler.Step
-import br.com.dynamic.assembler.technologies.TechnologiesInstance
-import br.com.dynamic.assembler.technologies.TechnologiesInterface
+import dynamic.assembler.Step
+import dynamic.assembler.technologies.TechnologiesInstance
+import dynamic.assembler.technologies.TechnologiesInterface
 
 class Assembler{
     TechnologiesInterface technology

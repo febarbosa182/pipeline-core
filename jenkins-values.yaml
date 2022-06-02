@@ -10,11 +10,10 @@ controller:
   installPlugins:
     - kubernetes:1.31.3
     - kubernetes-cli:1.10.3
-    - workflow-job:2.40
     - workflow-aggregator:2.6
     - docker-workflow:1.26
     - job-dsl:1.77
-    - git:4.10.2
+    - git:4.11.3
     - configuration-as-code:1429.v09b_044a_c93de
     - command-launcher:1.5
     - pipeline-utility-steps:2.7.0
@@ -33,7 +32,7 @@ controller:
                 definition {
                   cps {
                     script("""\
-                      @Library (['core','assembler']) _
+                      @Library (['core']) _
                       properties([
                           parameters(
                               [ string(name: 'REPO_BRANCH', defaultValue: 'main', description: 'git repository branch') ]
@@ -47,7 +46,7 @@ controller:
                       env.HELM_RELEASE_NAME = "pipeline-simple-app"
                       env.HELM_CHART_NAME = "pipeline-simple-app"
                       env.DOCKER_IMAGE = "febarbosa182/pipeline-simple-app"
-                      env.CI_IMAGE = "node:12.20.0"
+                      env.CI_IMAGE = "node:lts"
                       
                       coreLibrary{}
                     """.stripIndent())
