@@ -16,13 +16,6 @@ class Angular extends Common implements TechnologiesInterface, Serializable{
             instanceClass: 'dynamic.checkout.Checkout'
         ],
         [
-            identifier: 'dependencies',
-            stepName: 'Dependencies',
-            urlRepo: 'https://github.com/febarbosa182/pipestep-dependencies-angular.git',
-            branch: 'v1.1.0',
-            instanceClass: 'dynamic.dependencies.Dependencies'
-        ],
-        [
             identifier: 'build',
             stepName: 'Build',
             urlRepo: 'https://github.com/febarbosa182/pipestep-build-angular.git',

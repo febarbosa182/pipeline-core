@@ -34,10 +34,10 @@ kubectl create clusterrolebinding serviceaccounts-cluster-admin \
 Install jenkins with shared libraries and plugins installed, inside of "pipeline-core" repository folder:
 ```sh
 helm repo update
-export JENKINS_CHART_VERSION=3.3.0
+export JENKINS_CHART_VERSION=4.1.17
 helm upgrade --install jenkins jenkins/jenkins \
     --version $JENKINS_CHART_VERSION \
-    --values jenkins-config.yaml
+    --values jenkins-values.yaml
 ```
 It can take a while until it finishes the startup
 
