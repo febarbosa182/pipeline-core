@@ -5,40 +5,56 @@
 - kubectl v1.19.3+
 - minikube v1.14.0+
 ## Install and Configure
-* This install will use jenkins 2.274 and jenkins helm chart 3.0.14
+* This install will use jenkins 2.361 and jenkins helm chart 4.1.17
+* This install will use jenkins 2.361 and jenkins helm chart 4.1.17
 
 Clone "pipeline-core" repository
 ```sh
 git clone https://github.com/febarbosa182/pipeline-core.git
 ```
 
-Add jenkins helm oficial repository:
+Add jenkins and argo helm oficial repository:
 ```śh
 helm repo add jenkins https://charts.jenkins.io
+helm repo add argo https://argoproj.github.io/argo-helm
+helm repo update
 ```
 
 Start a minikube 
 ```sh
-minikube start --memory=4g
+minikube start --memory=8g --cpus=4
 ```
 
-Create a clusterrolebinding for serviceaccounts
+<!-- Create a clusterrolebinding for serviceaccounts
 ```sh
 kubectl create clusterrolebinding serviceaccounts-cluster-admin \
   --clusterrole=cluster-admin \
   --group=system:authenticated
-```
+``` -->
 
-> **_NOTE:_**  It's not recommended for production clusters, this is only for demo
+> **_NOTE:_**  It's not recommended resource configuration for production clusters, this is only for demo
 
-Install jenkins with shared libraries and plugins installed, inside of "pipeline-core" repository folder:
+Install Jenkins with shared libraries and plugins installed, inside of "pipeline-core" repository folder:
 ```sh
-helm repo update
 export JENKINS_CHART_VERSION=4.1.17
 helm upgrade --install jenkins jenkins/jenkins \
-    --version $JENKINS_CHART_VERSION \
-    --values jenkins-values.yaml
+  --version $JENKINS_CHART_VERSION \
+  --values jenkins-values.yaml
 ```
+
+Install ArgoCD
+```sh
+export ARGOCD_CHART_VERSION=5.4.7
+helm upgrade --install argo-cd argo/argo-cd \
+  --version $ARGOCD_CHART_VERSION \
+  --values argocd-values.yaml
+```
+
+```sh
+kubectl apply -f https://raw.githubusercontent.com/argoproj-labs/rollout-extension/v0.1.0/manifests/install.yaml
+kubectl apply -f argocd-resources.yaml
+```
+
 It can take a while until it finishes the startup
 
 Foward Jenkins to your localhost on port 8080

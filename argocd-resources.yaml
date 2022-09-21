@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: pipeline-app
+  namespace: default
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  description: Simple application deployed by pipeline
+  sourceRepos:
+  - '*'
+  destinations:
+  - namespace: default
+    server: https://kubernetes.default.svc
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: pipeline-app
+  namespace: default
+spec:
+  project: pipeline-app
+  source:
+    repoURL: https://github.com/febarbosa182/pipeline-app-helm.git
+    targetRevision: HEAD
+    path: charts/pipeline-simple-app
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    syncOptions:
+    - ApplyOutOfSyncOnly=true
+    - PruneLast=true

@@ -1,0 +1,14 @@
+server:
+  extensions:
+    enabled: true
+    contents: []
+    # - name: argo-rollouts
+    #   url: https://github.com/argoproj-labs/rollout-extension/releases/download/v0.2.1/extension.tar
+repoServer:
+  clusterAdminAccess:
+    enabled: true
+  repositories: 
+    local-stack-helm-repo:
+      url: https://storage.googleapis.com/istio-prerelease/daily-build/master-latest-daily/charts
+      name: istio.io
+      type: helm

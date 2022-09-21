@@ -1,7 +1,7 @@
 controller:
   componentName: "jenkins-controller"
   image: "jenkins/jenkins"
-  tag: "2.346.3-2-jdk17"
+  tag: "2.361.1-jdk17"
   imagePullPolicy: "Always"
   adminUser: "admin"
   adminPassword: "admin"
@@ -13,8 +13,8 @@ controller:
     - workflow-aggregator:2.6
     - docker-workflow:1.26
     - job-dsl:1.77
-    - git:4.11.4
-    - configuration-as-code:1429.v09b_044a_c93de
+    - git:4.12.1
+    - configuration-as-code:1512.vb_79d418d5fc8
     - command-launcher:1.5
     - pipeline-utility-steps:2.7.0
 
