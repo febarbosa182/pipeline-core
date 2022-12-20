@@ -1,22 +1,22 @@
 controller:
   componentName: "jenkins-controller"
   image: "jenkins/jenkins"
-  tag: "2.361.1-jdk17"
+  tag: "2.375.1-jdk17"
   imagePullPolicy: "Always"
   adminUser: "admin"
   adminPassword: "admin"
 
   # List of plugins to be install during Jenkins controller start
   installPlugins:
-    - kubernetes:1.31.3
+    - kubernetes:3743.v1fa_4c724c3b_7
     - kubernetes-cli:1.10.3
-    - workflow-aggregator:2.6
-    - docker-workflow:1.26
-    - job-dsl:1.77
-    - git:4.12.1
-    - configuration-as-code:1512.vb_79d418d5fc8
-    - command-launcher:1.5
-    - pipeline-utility-steps:2.7.0
+    - workflow-aggregator:590.v6a_d052e5a_a_b_5
+    - docker-workflow:563.vd5d2e5c4007f
+    - job-dsl:1.81
+    - git:4.14.3
+    - configuration-as-code:1569.vb_72405b_80249
+    - command-launcher:90.v669d7ccb_7c31
+    - pipeline-utility-steps:2.14.0
 
   JCasC:
     defaultConfig: true
@@ -56,26 +56,14 @@ controller:
           globalLibraries:
             libraries:
               - name: "core"
-                defaultVersion: "v1.0.0"
+                defaultVersion: "main"
                 retriever:
                   modernSCM:
                     scm:
                       git:
                         remote: "https://github.com/febarbosa182/pipeline-core.git"
     
-    securityRealm: |-
-      local:
-        allowsSignup: false
-        enableCaptcha: false
-        users:
-        - id: "${chart-admin-username}"
-          name: "Jenkins Admin"
-          password: "${chart-admin-password}"
-    # Ignored if authorizationStrategy is defined in controller.JCasC.configScripts
-    authorizationStrategy: |-
-      loggedInUsersCanDoAnything:
-        allowAnonymousRead: false
- 
+
 agent:
   enabled: true
   image: "jenkins/inbound-agent"
